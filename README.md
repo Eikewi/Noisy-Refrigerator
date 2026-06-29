@@ -12,9 +12,28 @@ The **Noisy Refrigerator** project monitors the internal temperature of a fridge
 *   **Gateway:** Philips Hue Bridge (API integration)
 
 ## ⚙️ How it Works
-1.  **Sensing:** The DS18B20 sensor provides high-precision temperature readings via the OneWire protocol.
-2.  **Processing:** The Arduino Nano 33 IoT processes the raw data and monitors for threshold breaches.
-3.  **Action:** Upon triggering, the Arduino sends an HTTP request over WiFi to the **Hue Bridge API**, which toggles the state of the connected Hue Plug.
+
+### Communication Flow
+```text
+  [PIR Sensor] 
+       |
+       v (Digital)
++-------------------+           +-----------------------+           +----------------+
+|   Motion Node     |    BLE    |   Controller Hub      |    WiFi    |   Hue Bridge    |
+| (Arduino Nano 33) | --------> |       (ESP32)         | ---------> |   (API Gateway) |
++-------------------+           +-----------------------+           +----------------+
+                                          ^       ^                                  |
+                                          |       |                              (Zigbee)
+                                    [DS18B20] [Web Dashboard]                        |
+                                      Sensor      (HTTP)                              v
+                                                                             +----------------+
+                                                                             |    Hue Plug     |
+                                                                             +----------------+
+```
+
+1.  **Sensing:** The DS18B20 sensor provides high-precision temperature readings, and the Motion Node monitors movement via a PIR sensor.
+2.  **Processing:** The ESP32 Controller Hub aggregates the BLE motion data and local temperature readings, monitoring for threshold breaches.
+3.  **Action:** Upon triggering, the Hub sends an HTTP request to the **Hue Bridge API**, which toggles the state of the connected Hue Plug.
 
 ## 🚀 Key Features
 *   **Waterproof Monitoring:** Industrial-grade sensing for high-humidity environments.
