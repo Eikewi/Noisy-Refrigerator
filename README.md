@@ -22,13 +22,13 @@ The **Noisy Refrigerator** project monitors the internal temperature of a fridge
 |   Motion Node     |    BLE    |   Controller Hub      |    WiFi    |   Hue Bridge    |
 | (Arduino Nano 33) | --------> |       (ESP32)         | ---------> |   (API Gateway) |
 +-------------------+           +-----------------------+            +-----------------+
-                                          ^       ^                                  |
-                                          |       |                              (Zigbee)
-                                    [DS18B20] [Web Dashboard]                        |
-                                      Sensor      (HTTP)                             v
-                                                                             +----------------+
-                                                                             |    Hue Plug    |
-                                                                             +----------------+
+                                          ^       ^                            |
+                                          |       |                        (Zigbee)
+                                    [DS18B20] [Web Dashboard]                  |
+                                      Sensor      (HTTP)                       v
+                                                                      +----------------+
+                                                                      |    Hue Plug    |
+                                                                      +----------------+
 ```
 
 1.  **Sensing:** The DS18B20 sensor provides high-precision temperature readings, and the Motion Node monitors movement via a PIR sensor.
