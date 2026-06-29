@@ -3,7 +3,9 @@
 An IoT-based temperature monitoring system designed to track refrigerator health and trigger smart home automation based on thermal thresholds.
 
 ## 📺 Demo
-![Project Showcase](demo/showcase_optimized.mp4)
+https://github.com/user-attachments/assets/5a061f05-cb68-45ef-92af-3ba1d9105525
+
+
 
 ## 📌 Overview
 The **Noisy Refrigerator** project monitors the internal temperature of a fridge using an Arduino-based sensor node. When specific temperature conditions are met, the system communicates with a **Philips Hue Bridge** to trigger a **Hue Plug**, allowing for automated alerts or power management.
