@@ -18,16 +18,16 @@ The **Noisy Refrigerator** project monitors the internal temperature of a fridge
   [PIR Sensor] 
        |
        v (Digital)
-+-------------------+           +-----------------------+           +----------------+
++-------------------+           +-----------------------+            +-----------------+
 |   Motion Node     |    BLE    |   Controller Hub      |    WiFi    |   Hue Bridge    |
 | (Arduino Nano 33) | --------> |       (ESP32)         | ---------> |   (API Gateway) |
-+-------------------+           +-----------------------+           +----------------+
++-------------------+           +-----------------------+            +-----------------+
                                           ^       ^                                  |
                                           |       |                              (Zigbee)
                                     [DS18B20] [Web Dashboard]                        |
-                                      Sensor      (HTTP)                              v
+                                      Sensor      (HTTP)                             v
                                                                              +----------------+
-                                                                             |    Hue Plug     |
+                                                                             |    Hue Plug    |
                                                                              +----------------+
 ```
 
